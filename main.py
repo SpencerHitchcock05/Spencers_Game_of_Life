@@ -6,6 +6,14 @@ import tkinter as tk
 from tkinter import ttk
 import random
 
+class Species:
+    def __init__(self, name, birthrate= 0.01, deathrate=0.01, color="black", id=0):
+        self.name = name
+        self.birthrate = birthrate
+        self.deathrate = deathrate
+        self.color = color
+        self.id = id
+
 class LifeSimulation:
     def __init__(self, root):
         self.root = root
@@ -23,6 +31,8 @@ class LifeSimulation:
             [random.randint(50, 750), random.randint(50, 550), 1, 100, 0] 
             for _ in range(30)
         ])
+
+        self.species = []
         
         # Species data
         self.species_data = pd.DataFrame({
